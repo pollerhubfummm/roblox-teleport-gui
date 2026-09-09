@@ -1,14 +1,3 @@
--- 🚀 ROBLOX TELEPORT SYSTEM - LOADER
--- Kopiere diesen Code in deine ROBLOX Script Konsole und führe ihn aus!
--- Er lädt automatisch das komplette Teleport System mit einer professionellen GUI
-
-local function LoadTeleportSystem()
-    local scriptCode = [[
---[[
-    ROBLOX TELEPORT SYSTEM - ULTIMATE EDITION
-    Mit GUI, Position-Speicherung, Statistiken & mehr
-]]--
-
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -47,7 +36,7 @@ function SM:L()
 end
 
 function SM:S()
-    local s = pcall(function()
+    pcall(function()
         local j = HttpService:JSONEncode(self.Data)
         local o = player:FindFirstChild("TD")
         if not o then
@@ -57,7 +46,6 @@ function SM:S()
         end
         o.Value = j
     end)
-    return s
 end
 
 function SM:A(n, p, ic)
@@ -277,7 +265,7 @@ function UM:CreateGui()
     mp.Size = UDim2.new(0, 420, 0, 650)
     mp.Position = UDim2.new(0.5, -210, 0.5, -325)
     mp.BackgroundColor3 = C.GC
-    mp.BackgroundTransparency = C.PC:Distance(C.GC) / 500
+    mp.BackgroundTransparency = 0.1
     mp.BorderSizePixel = 0
     mp.Parent = sg
     mp.Draggable = true
@@ -549,17 +537,3 @@ local function Init()
 end
 
 Init()
-    ]]
-    
-    -- Execute script
-    local success, err = pcall(function()
-        loadstring(scriptCode)()
-    end)
-    
-    if not success then
-        print("❌ Fehler beim Laden:", err)
-    end
-end
-
--- Start
-LoadTeleportSystem()
